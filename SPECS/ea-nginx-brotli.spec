@@ -9,7 +9,7 @@ Group:          System Environment/Libraries
 URL:            http://www.cpanel.net
 Vendor:         cPanel, Inc.
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
-Requires:       ea-nginx
+Requires:       ea-nginx >= 1.21.6-7
 
 Provides:       ea-nginx-compression
 Conflicts:      ea-nginx-compression
