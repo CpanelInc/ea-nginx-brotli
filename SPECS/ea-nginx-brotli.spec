@@ -1,7 +1,7 @@
 Name:           ea-nginx-brotli
 Version:        1.0
 # Doing release_prefix this way for Release allows for OBS-proof versioning, See EA-4552 for more details
-%define release_prefix 1
+%define release_prefix 2
 Release:        %{release_prefix}%{?dist}.cpanel
 Summary:        Enable brotli config for ea-nginx
 License:        2-clause BSD-like license
@@ -10,9 +10,6 @@ URL:            http://www.cpanel.net
 Vendor:         cPanel, Inc.
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-buildroot
 Requires:       ea-nginx >= 1.21.6-7
-
-Provides:       ea-nginx-compression
-Conflicts:      ea-nginx-compression
 
 Source0:        brotli.conf
 Source1:        ngx_brotli_module.conf
@@ -47,5 +44,8 @@ rm -rf %{buildroot}
 /etc/nginx/conf.d/modules/ngx_brotli_module.conf
 
 %changelog
+* Mon Apr 11 2022 Dan Muey <dan@cpanel.net> - 1.0-2
+- ZC-9902: remove conflict w/ gzip
+
 * Thu Feb 24 2022 Daniel Muey <dan@cpanel.net> - 1.0-1
 - ZC-9697: Initial version
